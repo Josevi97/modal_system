@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, BrowserRouter, Routes } from 'react-router-dom';
+import ModalProvider from './contexts/modal.context';
+import AboutView from './views/AboutView/AbutView';
+import HomeView from './views/HomeView/HomeView';
 
-function App() {
+const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <Routes>
+        <Route element={<ModalProvider />}>
+          <Route path='/' element={<HomeView />}></Route>
+          <Route path='/about' element={<AboutView />}></Route>
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  )
+
 }
 
 export default App;

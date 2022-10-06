@@ -1,0 +1,41 @@
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(0, 0, 0, .5);
+  width: 100vw;
+  height: 100vh;
+}
+
+.modal {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+
+  background-color: white;
+  padding: 20px;
+
+  max-width: 500px;
+
+  animation: fade .5s;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+    top: -20px;
+  }
+
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}

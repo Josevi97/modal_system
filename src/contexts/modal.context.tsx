@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useReducer, useRef } from "react";
 import { Outlet } from "react-router-dom";
+import BlackBackground from "../components/BlackBackground/BlackBackground";
 import Modal, { IModal } from "../components/Modal/Modal";
 import { IModalContext, IModalState, ModalAction } from "./modal.types";
 
@@ -89,7 +90,9 @@ const ModalProvider = () => {
     <ModalContext.Provider value={context}>
       {
         state.visible &&
-          <Modal />
+          <BlackBackground>
+            <Modal />
+          </BlackBackground>
       }
 
       <Outlet />

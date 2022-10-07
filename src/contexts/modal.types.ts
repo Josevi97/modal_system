@@ -1,19 +1,19 @@
-import { IModal } from "../components/Modal/Modal"
+import { IModalData } from "../components/Modal/Modal"
 
 export interface IModalHistory {
-  current: IModal,
+  current: IModalData,
   previous?: IModalHistory
 }
 
 export interface IModalState {
   visible: boolean,
   popping: boolean,
-  current: IModal,
+  current: IModalData,
   previous: IModalHistory
 }
 
 export type ModalActionPayload =
-  | IModal
+  | IModalData
 
 export type ModalActionType = 'show' | 'hide' | 'back' | 'pop';
 
@@ -23,7 +23,7 @@ export interface ModalAction {
 }
 
 export interface IModalActions {
-  show: (data: IModal) => void,
+  show: (data: IModalData) => void,
   hide: () => void,
   back: () => void,
 }

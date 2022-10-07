@@ -1,20 +1,20 @@
 import { Link } from "react-router-dom";
-import { IModal } from "../../components/Modal/Modal";
+import { IModalData } from "../../components/Modal/Modal";
 import { useModalContext } from "../../contexts/modal.context";
 
 const AboutView = () => {
 
   const { actions } = useModalContext();
 
-  const handleClick = (modal: IModal) => actions.show(modal);
+  const handleClick = (modal: IModalData) => actions.show(modal);
 
-  const mainModal: IModal = {
+  const mainModal: IModalData = {
     header: <h1>About</h1>,
     content: <div>Holaaaaaa!</div>,
     footer: <button onClick={() => handleClick(secondaryModal)}>Testing</button>
   }
 
-  const secondaryModal: IModal = {
+  const secondaryModal: IModalData = {
     content: <div>Esto es una prueba y para poder comprobarlo bien deberia de comprobarse mediante el uso de un Lorem</div>,
     footer: (
       <div>
@@ -24,7 +24,7 @@ const AboutView = () => {
     )
   }
 
-  const terciaryModal: IModal = {
+  const terciaryModal: IModalData = {
     content: <div>XD</div>,
     footer: <button onClick={actions.back}>Back</button>
   }

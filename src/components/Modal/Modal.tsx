@@ -2,13 +2,17 @@ import React from 'react';
 import { useModalContext } from '../../contexts/modal.context';
 import styles from './Modal.module.css';
 
-export interface IModal {
+export interface IModalData {
   header?: React.ReactNode,
   content: React.ReactNode,
   footer?: React.ReactNode
 }
 
-const Modal = () => {
+export interface IModal {
+  popping?: boolean
+}
+
+const Modal = ({ popping = false }: IModal) => {
 
   const { state, actions } = useModalContext();
 
@@ -25,7 +29,7 @@ const Modal = () => {
     );
   }
 
-  if (state.popping) return <></>
+  if (popping) return <></>
 
   return (
     <div className={styles.modal}>

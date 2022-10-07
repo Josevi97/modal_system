@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useReducer, useRef } from "react";
 import { Outlet } from "react-router-dom";
 import BlackBackground from "../components/BlackBackground/BlackBackground";
-import Modal, { IModal } from "../components/Modal/Modal";
+import Modal, { IModalData } from "../components/Modal/Modal";
 import { IModalContext, IModalState, ModalAction } from "./modal.types";
 
 const poppingConstant: number = 0;
@@ -43,7 +43,7 @@ const ModalProvider = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const modalTimeout = useRef<ReturnType<typeof setTimeout>>();
 
-  const show = (data: IModal) => {
+  const show = (data: IModalData) => {
     clearTimeout(modalTimeout.current);
 
     if (state.current) {
@@ -91,7 +91,7 @@ const ModalProvider = () => {
       {
         state.visible &&
           <BlackBackground>
-            <Modal />
+            <Modal popping={state.popping} />
           </BlackBackground>
       }
 
